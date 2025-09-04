@@ -1,0 +1,37 @@
+****************************************
+*               ip addr                * 
+****************************************
+
+#lo → loopback interface
+#enp0s3 → physical/virtual NIC
+ip addr show #সব ইন্টারফেসের বিস্তারিত IP দেখানো
+ip addr show dev eth0 #নির্দিষ্ট ইন্টারফেসের (যেমন eth0) IP দেখানো
+ip -4 addr show #IPv6 কনফিউশন বাদ দিয়ে শুধুমাত্র IPv4 দেখতে
+ip -6 addr show #IPv6 enabled server troubleshoot করার সময়
+sudo ip addr add 192.168.1.50/24 dev eth0 #নির্দিষ্ট ইন্টারফেসে IP যোগ করা
+sudo ip addr del 192.168.1.50/24 dev eth0 #নির্দিষ্ট ইন্টারফেস থেকে IP মুছে ফেলা
+ip addr show lo
+ip addr show dev ens33 #VM, Docker, Kubernetes node এ loopback বা virtual NIC status চেক করতে
+ip -brief addr #দ্রুত দেখতে কোন interface up/down আছে এবং কোন IP bound
+ip addr | grep "state UP" #শুধু active interfaces দেখানো
+ip -o -4 addr show dev eth0 | awk '{print $4}' #automation script এ সার্ভারের IP dynamically নিতে
+ip link show #NIC UP/DOWN চেক করার কমান্ড 
+ip link show enp0s3 #নির্দিষ্ট interface চেক করতে
+nmcli device status #nmcli (Network Manager tool)
+ifconfig enp0s3 #যদি IP assign থাকে এবং RUNNING দেখায় → NIC UP
+sudo ip link set enp0s3 down #NIC down করতে
+sudo ip link set enp0s3 up #NIC up করতে
+
+****************************************
+*              hostnamectl             * 
+****************************************
+
+#<role>-<number>.<environment>.<region>.<company/domain>
+#web-01.prod.us-east-1.company.com
+sudo hostnamectl set-hostname devops-server #Hostname সেট করা (permanent)
+sudo hostnamectl set-hostname "DevOps Test Server" --pretty #Pretty hostname সেট করা
+sudo hostnamectl set-hostname temp-server --transient #Transient hostname সেট করা
+sudo hostnamectl set-hostname app-server --static --transient --pretty #All three একসাথে সেট করা
+hostnamectl #System তথ্য দেখা
+hostnamectl status | grep "Static hostname" #শুধু hostname দেখানো
+
