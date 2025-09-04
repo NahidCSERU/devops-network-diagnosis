@@ -33,7 +33,8 @@ The ip addr command displays the system’s network interfaces and IP addresses.
 
 ### ✅ Usage
 
-`ip addr`
+`ip addr`     
+   
 Sample Output :-
 ![output_ip_addr](../images/ip_addr.png)
 
