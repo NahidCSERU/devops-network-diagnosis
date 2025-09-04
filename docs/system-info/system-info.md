@@ -17,19 +17,9 @@ The `hostnamectl` command provides detailed information about the system’s **h
 ### ✅ Usage
 
 hostnamectl   
-### [📌 Sample Output](../images/hostnamectl.png)
+### 📌 Sample Output
+![output_hostnamectl](../images/hostnamectl.png)
 
-```
-   Static hostname: nahid-server
-         Icon name: computer-vm
-           Chassis: vm
-        Machine ID: a3c1d7b2c9e54b32b1f8fdb7f0f3d2f6
-           Boot ID: 3d0a29f09a6d4d3da7f6780f39b829de
-    Virtualization: kvm
-  Operating System: Ubuntu 22.04.3 LTS
-            Kernel: Linux 5.15.0-83-generic
-      Architecture: x86-64
-```
 ### 🎯 Why DevOps Engineers Use This
 
 - Identify **OS distribution & version** before deployment.
@@ -45,15 +35,9 @@ The ip addr command displays the system’s network interfaces and IP addresses.
 ```
 ip addr
 ```
-### [📌 Sample Output](../images/ip_addr.png)
-```
-2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether 00:0c:29:36:bc:df brd ff:ff:ff:ff:ff:ff
-    inet 192.168.1.20/24 brd 192.168.1.255 scope global dynamic ens33
-       valid_lft 86392sec preferred_lft 86392sec
-    inet6 fe80::20c:29ff:fe36:bcdf/64 scope link 
-       valid_lft forever preferred_lft forever
-```
+### 📌 Sample Output
+![output_ip_addr]](../images/ip_addr.png)
+
 ### 🎯 Why DevOps Engineers Use This
 
 - Verify **private/public IPs** for cloud instances.
