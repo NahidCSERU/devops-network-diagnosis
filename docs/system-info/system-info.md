@@ -17,7 +17,8 @@ The `hostnamectl` command provides detailed information about the system’s **h
 ### ✅ Usage
 
 hostnamectl   
-### 📌 Sample Output
+### [📌 Sample Output](../images/hostnamectl.png)
+
 ```
    Static hostname: nahid-server
          Icon name: computer-vm
@@ -44,7 +45,7 @@ The ip addr command displays the system’s network interfaces and IP addresses.
 ```
 ip addr
 ```
-### 📌 Sample Output
+### [📌 Sample Output](../images/ip_addr.png)
 ```
 2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
     link/ether 00:0c:29:36:bc:df brd ff:ff:ff:ff:ff:ff
