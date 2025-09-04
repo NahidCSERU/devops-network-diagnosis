@@ -16,8 +16,8 @@ The `hostnamectl` command provides detailed information about the system’s **h
 
 ### ✅ Usage
 
-hostnamectl   
-### 📌 Sample Output
+`hostnamectl`   
+Sample Output :-
 ![output_hostnamectl](../images/hostnamectl.png)
 
 ### 🎯 Why DevOps Engineers Use This
@@ -32,11 +32,10 @@ hostnamectl
 The ip addr command displays the system’s network interfaces and IP addresses.
 
 ### ✅ Usage
-```
-ip addr
-```
-### 📌 Sample Output
-![output_ip_addr]](../images/ip_addr.png)
+
+`ip addr`
+Sample Output :-
+![output_ip_addr](../images/ip_addr.png)
 
 ### 🎯 Why DevOps Engineers Use This
 
@@ -54,4 +53,4 @@ ip addr
 | `ip addr`     | Show IPs & interfaces             | Debug why a server is unreachable        |
 
 
-✅ With just these two commands, you can confirm what system you’re on and how it connects to the network — the foundation of any DevOps troubleshooting workflow.
+With just these two commands, you can confirm what system you’re on and how it connects to the network — the foundation of any DevOps troubleshooting workflow.
