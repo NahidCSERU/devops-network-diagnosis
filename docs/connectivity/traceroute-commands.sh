@@ -1,3 +1,7 @@
+#!/bin/bash
+# Traceroute Commands Cheat Sheet for DevOps
+# Author: <Nahid Hasan>
+# Date: 12.09.2025
 traceroute google.com           # Basic trace to see all hops to the host
 
 traceroute -n google.com        # Skip DNS resolution, show only IPs (faster)
