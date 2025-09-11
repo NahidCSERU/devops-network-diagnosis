@@ -1,5 +1,7 @@
 #!/bin/bash
 # Ping Commands Cheat Sheet for DevOps
+# Author: <Nahid Hasan>
+# Date: 12.09.2025
 
 ping google.com        # Basic connectivity test (check if host is reachable)
 
