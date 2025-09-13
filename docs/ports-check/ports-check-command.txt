@@ -1,0 +1,68 @@
+****************************************
+*               netstat                * 
+****************************************
+
+# 1. Show all listening ports
+netstat -tuln
+
+# 2. Show listening ports with process details (PID/Program name)
+netstat -tulpn
+
+# 3. Show all active TCP connections
+netstat -ant
+
+# 4. Show all active UDP connections
+netstat -anu
+
+# 5. Show routing table (like `route -n`)
+netstat -rn
+
+# 6. Show statistics for each protocol (TCP, UDP, ICMP, etc.)
+netstat -s
+
+# 7. Show all connections and listening ports (both TCP & UDP)
+netstat -a
+
+# 8. Show only TCP connections in ESTABLISHED state
+netstat -ant | grep ESTABLISHED
+
+# 9. Show only ports in LISTEN state
+netstat -ant | grep LISTEN
+
+# 10. Continuously monitor network connections (refresh every 2 sec)
+watch -n 2 netstat -ant
+
+
+****************************************
+*               ss                     * 
+****************************************
+
+# 1. Show all listening ports 
+ss -tuln
+
+# 2. Show listening ports with process info (PID/Program name)
+ss -tulpn
+
+# 3. Show all active TCP connections
+ss -ant
+
+# 4. Show all active UDP connections
+ss -anu
+
+# 5. Show summary statistics of sockets
+ss -s
+
+# 6. Show only established TCP connections
+ss -o state established '( dport = :80 or sport = :80 )'
+
+# 7. Show only connections in LISTEN state
+ss -ltn
+
+# 8. Show connections to a specific port (e.g., port 22)
+ss -at '( dport = :22 )'
+
+# 9. Show connections for a specific process (PID = 1234)
+ss -p | grep 1234
+
+# 10. Continuously monitor socket connections (refresh every 2 sec)
+watch -n 2 "ss -ant"
