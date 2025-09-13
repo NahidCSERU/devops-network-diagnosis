@@ -1,0 +1,69 @@
+
+****************************************
+*               curl                   * 
+****************************************
+
+# 1. শুধু HTTP headers দেখাবে
+curl -I https://example.com     
+  
+# 2. Verbose mode, request/response details দেখাবে  
+curl -v https://example.com     
+
+# 3. আউটপুট একটা ফাইলে সেভ করবে  
+curl -o output.html https://example.com     
+
+# 4. Redirect follow করবে  
+curl -L https://example.com     
+
+# 5. POST request পাঠাবে form-data সহ  
+curl -X POST -d "name=nahid&role=devops" https://example.com/api     
+
+# 6. API request with custom header  
+curl -H "Authorization: Bearer <token>" https://example.com/api     
+
+# 7. Basic authentication দিয়ে request পাঠাবে 
+curl -u user:password https://example.com     
+ 
+# 8. Remote ফাইল ডাউনলোড করবে current directory তে
+curl -O https://example.com/file.zip     
+  
+# 9. Limited speed দিয়ে ডাউনলোড করবে 
+curl --limit-rate 200K https://example.com/file.iso -O     
+ 
+# 10. SSL verification skip করবে (self-signed cert টেস্টের জন্য) 
+curl -k https://self-signed.badssl.com/     
+ 
+
+****************************************
+*               wget                   * 
+****************************************
+
+# 1. Download a single file
+wget https://example.com/file.zip
+
+# 2. Download and save with a different name
+wget -O newfile.zip https://example.com/file.zip
+
+# 3. Download in the background
+wget -b https://example.com/largefile.iso
+
+# 4. Resume a partially downloaded file
+wget -c https://example.com/largefile.iso
+
+# 5. Limit download speed (200 KB/s)
+wget --limit-rate=200k https://example.com/file.iso
+
+# 6. Mirror an entire website (recursive)
+wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://example.com
+
+# 7. Download files listed in a text file (urls.txt)
+wget -i urls.txt
+
+# 8. Retry failed downloads 10 times
+wget --tries=10 https://example.com/file.zip
+
+# 9. Set download timeout (30 seconds)
+wget --timeout=30 https://example.com/file.zip
+
+# 10. Save logs of download activity
+wget -o download.log https://example.com/file.zip
