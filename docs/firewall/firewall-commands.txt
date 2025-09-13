@@ -1,0 +1,122 @@
+****************************************
+*               ufw                    * 
+****************************************
+
+# 1. Enable firewall  
+sudo ufw enable  
+
+# 2. Disable firewall  
+sudo ufw disable  
+
+# 3. Check firewall status (rules + active state)  
+sudo ufw status verbose  
+
+# 4. Allow SSH (default port 22)  
+sudo ufw allow ssh  
+
+# 5. Allow specific port (e.g., HTTP port 80)  
+sudo ufw allow 80/tcp  
+
+# 6. Allow HTTPS (port 443)  
+sudo ufw allow 443/tcp  
+
+# 7. Allow a port range (e.g., 1000-2000)  
+sudo ufw allow 1000:2000/tcp  
+
+# 8. Deny a port (block access)  
+sudo ufw deny 23/tcp  
+
+# 9. Delete a rule (example: remove port 80 allow rule)  
+sudo ufw delete allow 80/tcp  
+
+# 10. Allow traffic from a specific IP  
+sudo ufw allow from 192.168.1.10  
+
+# 11. Allow traffic from a subnet to a specific port  
+sudo ufw allow from 192.168.1.0/24 to any port 22  
+
+# 12. Deny traffic from a specific IP  
+sudo ufw deny from 203.0.113.5  
+
+# 13. Set default policy to deny all incoming connections  
+sudo ufw default deny incoming  
+
+# 14. Set default policy to allow all outgoing connections  
+sudo ufw default allow outgoing  
+
+# 15. Reload firewall to apply new rules  
+sudo ufw reload  
+
+# 16. Reset all rules (start fresh, removes everything)  
+sudo ufw reset  
+
+# 17. Show numbered list of rules  
+sudo ufw status numbered  
+
+# 18. Delete a rule by number (example: rule #3)  
+sudo ufw delete 3  
+
+
+****************************************
+*               iptables               * 
+****************************************
+
+# 1. Show all rules in the filter table  
+sudo iptables -L -v -n  
+
+# 2. List rules with line numbers (useful for deleting by number)  
+sudo iptables -L --line-numbers  
+
+# 3. Allow incoming SSH (port 22)  
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT  
+
+# 4. Allow incoming HTTP (port 80)  
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT  
+
+# 5. Allow incoming HTTPS (port 443)  
+sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT  
+
+# 6. Block (deny) a specific IP  
+sudo iptables -A INPUT -s 203.0.113.5 -j DROP  
+
+# 7. Allow traffic from a specific IP  
+sudo iptables -A INPUT -s 192.168.1.10 -j ACCEPT  
+
+# 8. Drop all incoming traffic by default (paranoid mode)  
+sudo iptables -P INPUT DROP  
+
+# 9. Allow all outgoing traffic by default  
+sudo iptables -P OUTPUT ACCEPT  
+
+# 10. Allow loopback traffic (important for local apps)  
+sudo iptables -A INPUT -i lo -j ACCEPT  
+
+# 11. Delete a rule by line number (example: INPUT chain rule #3)  
+sudo iptables -D INPUT 3  
+
+# 12. Flush (delete) all rules from all chains  
+sudo iptables -F  
+
+# 13. Flush rules from a specific chain (example: INPUT only)  
+sudo iptables -F INPUT  
+
+# 14. Save current rules (Ubuntu/Debian way)  
+sudo sh -c "iptables-save > /etc/iptables/rules.v4"  
+
+# 15. Restore rules from saved file  
+sudo iptables-restore < /etc/iptables/rules.v4  
+
+# 16. Block a port (example: Telnet port 23)  
+sudo iptables -A INPUT -p tcp --dport 23 -j DROP  
+
+# 17. Allow a port range (example: 1000–2000)  
+sudo iptables -A INPUT -p tcp --dport 1000:2000 -j ACCEPT  
+
+# 18. Allow established/related connections (avoid breaking things)  
+sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT  
+
+# 19. Log dropped packets (for debugging)  
+sudo iptables -A INPUT -j LOG --log-prefix "IPTables-Dropped: " --log-level 4  
+
+# 20. Check NAT table rules (useful for Docker, load balancers)  
+sudo iptables -t nat -L -n -v  
