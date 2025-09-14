@@ -1,31 +1,31 @@
 🔹 Common nslookup Commands for DevOps
 
 nslookup example.com
-# Basic DNS resolution (A record - default lookup)
+# 1 Basic DNS resolution (A record - default lookup)
 
 nslookup -type=MX example.com
-# Show mail exchange (MX) records for email servers
+# 2 Show mail exchange (MX) records for email servers
 
 nslookup -type=NS example.com
-# Show authoritative name servers of the domain
+# 3 Show authoritative name servers of the domain
 
 nslookup -type=TXT example.com
-# Show TXT records (SPF, DKIM, domain verification info)
+# 4 Show TXT records (SPF, DKIM, domain verification info)
 
 nslookup -type=AAAA example.com
-# Get IPv6 address (AAAA record)
+# 5 Get IPv6 address (AAAA record)
 
 nslookup -type=CNAME www.example.com
-# Show canonical name (CNAME) mapping
+# 6 Show canonical name (CNAME) mapping
 
 nslookup example.com 8.8.8.8
-# Query specific DNS server (here Google DNS)
+# 7 Query specific DNS server (here Google DNS)
 
 nslookup -type=SOA example.com
-# Show Start of Authority (SOA) record (primary DNS + admin info)
+# 8 Show Start of Authority (SOA) record (primary DNS + admin info)
 
 nslookup -type=ANY example.com
-# Show all available DNS records for the domain
+# 9 Show all available DNS records for the domain
 
 nslookup
-# Enter interactive mode → can query multiple records without retyping nslookup
+# 10 Enter interactive mode → can query multiple records without retyping nslookup
