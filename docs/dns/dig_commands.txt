@@ -1,0 +1,45 @@
+🔹 Common dig Commands for DevOps
+dig example.com
+# 1 Basic DNS A record lookup (IPv4 address)
+
+dig example.com A
+# 2 Explicitly check only A record
+
+dig example.com AAAA
+# 3 Check IPv6 address (AAAA record)
+
+dig example.com MX
+# 4 Show mail exchange (MX) records for email servers
+
+dig example.com NS
+# 5 Show authoritative name servers
+
+dig example.com TXT
+# 6 Show TXT records (SPF, DKIM, domain verification info)
+
+dig example.com CNAME
+# 7 Show canonical name mapping (CNAME)
+
+dig example.com SOA
+# 8 Show Start of Authority (SOA) record (primary DNS + admin info)
+
+dig example.com ANY
+# 9 Query all available DNS records for the domain
+
+dig example.com +short
+# 10 Short & clean output (just the IPs)
+
+dig @8.8.8.8 example.com
+# 11 Query specific DNS server (Google DNS here)
+
+dig example.com +trace
+# 12 Trace the full DNS resolution path (root → TLD → authoritative server)
+
+dig -x 8.8.8.8
+# 13 Reverse DNS lookup (IP → domain name)
+
+dig example.com +nocmd +noall +answer
+# 14 Only show the final answer (clean output for scripting)
+
+dig example.com ANY +noall +answer
+# 15 Show all DNS records but only final answers
