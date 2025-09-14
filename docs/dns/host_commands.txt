@@ -1,0 +1,36 @@
+🔹 Common host Commands for DevOps
+host example.com
+# 1 Basic DNS lookup → shows default A (IPv4) record
+
+host -t A example.com
+# 2 Show only A record (IPv4 address)
+
+host -t AAAA example.com
+# 3 Show only AAAA record (IPv6 address)
+
+host -t MX example.com
+# 4 Show mail exchange (MX) records (mail servers)
+
+host -t NS example.com
+# 5 Show authoritative name servers
+
+host -t TXT example.com
+# 6 Show TXT records (SPF, DKIM, verification info)
+
+host -t CNAME www.example.com
+# 7 Show canonical name mapping (CNAME)
+
+host -t SOA example.com
+# 8 Show Start of Authority (SOA) record (primary DNS + serial number)
+
+host -a example.com
+# 9 "All records" lookup (similar to dig ANY)
+
+host example.com 8.8.8.8
+# 10 Query specific DNS server (Google DNS here)
+
+host -t SRV _sip._tcp.example.com
+# 11 Show SRV records (for services like SIP, LDAP, etc.)
+
+host -t PTR 8.8.8.8
+# 12 Reverse DNS lookup (IP → domain name)
