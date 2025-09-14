@@ -1,0 +1,86 @@
+****************************************
+*               /var/log/              * 
+****************************************
+
+# 1. Show the last 50 lines from syslog (general system log)
+tail -n 50 /var/log/syslog
+
+# 2. Follow authentication log in real-time (login, ssh, sudo attempts)
+tail -f /var/log/auth.log
+
+# 3. Check kernel logs for hardware/network issues
+tail -f /var/log/kern.log
+
+# 4. View Apache web server error log
+less /var/log/apache2/error.log
+
+# 5. View Nginx access log
+less /var/log/nginx/access.log
+
+# 6. Search for "error" keyword in syslog
+grep "error" /var/log/syslog
+
+# 7. Count failed SSH login attempts
+grep "Failed password" /var/log/auth.log | wc -l
+
+# 8. Show only today’s logs from syslog
+grep "$(date '+%b %e')" /var/log/syslog
+
+# 9. Monitor MySQL server logs
+tail -f /var/log/mysql/error.log
+
+# 10. Check disk-related errors
+grep "EXT4" /var/log/kern.log
+
+
+
+****************************************
+*               journalctl             * 
+****************************************
+
+# 1 সব লগ দেখাও (পুরো জার্নাল)
+journalctl
+
+# 2 নির্দিষ্ট সার্ভিসের লগ দেখাও (উদাহরণ: nginx)
+journalctl -u nginx.service
+
+# 3 নির্দিষ্ট সার্ভিসের রিয়েল-টাইম লগ ফলো করা (tail -f এর মতো)
+journalctl -u nginx.service -f
+
+# 4 শেষবার বুট হওয়ার পর থেকে সব লগ
+journalctl -b
+
+# 5 আগের বুটের লগ ( -b -1 মানে last boot )
+journalctl -b -1
+
+# 6 রিয়েল-টাইমে সব লগ ফলো করা
+journalctl -f
+
+# 7 নির্দিষ্ট তারিখ থেকে লগ (from)
+journalctl --since "2025-09-10 10:00:00"
+
+# 8  নির্দিষ্ট তারিখ পর্যন্ত লগ (until)
+journalctl --until "2025-09-14 18:00:00"
+
+# 9 নির্দিষ্ট তারিখ রেঞ্জ এর লগ
+journalctl --since "2025-09-10" --until "2025-09-14"
+
+# 10 নির্দিষ্ট প্রায়োরিটি (error, warning) লগ
+journalctl -p err       # শুধু error level
+journalctl -p warning   # শুধু warning
+journalctl -p crit      # critical errors
+
+# 11 শেষ 100 লাইনের লগ
+journalctl -n 100
+
+# 12 Kernel সম্পর্কিত লগ
+journalctl -k
+
+# 13 নির্দিষ্ট PID এর লগ
+journalctl _PID=1234
+
+# 14 নির্দিষ্ট ইউজারের লগ
+journalctl _UID=1000
+
+# 15 নির্দিষ্ট executable (binary) এর লগ
+journalctl _EXE=/usr/bin/python3
