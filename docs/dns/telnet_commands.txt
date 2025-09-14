@@ -1,0 +1,30 @@
+🔹 Common telnet Commands for DevOps
+telnet example.com 80
+# 1 Test if HTTP (port 80) is open and responding
+
+telnet example.com 443
+# 2 Test if HTTPS (port 443) is open (SSL services)
+
+telnet mail.example.com 25
+# 3 Check if SMTP mail server port 25 is reachable
+
+telnet mail.example.com 587
+# 4 Check if SMTP submission port 587 is open
+
+telnet mail.example.com 993
+# 5 Check IMAP secure port (993) connectivity
+
+telnet mail.example.com 995
+# 6 Check POP3 secure port (995) connectivity
+
+telnet db.example.com 3306
+# 7 Test MySQL database server port
+
+telnet db.example.com 5432
+# 8 Test PostgreSQL database server port
+
+telnet cache.example.com 6379
+# 9 Test Redis cache server connectivity
+
+telnet example.com 22
+# 10 Test SSH service (port 22) availability
