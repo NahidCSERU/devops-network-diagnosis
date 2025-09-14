@@ -1,0 +1,8 @@
+# Run backup every day at 2 AM
+0 2 * * * /bin/bash ~/dayXX-crontab-automation/scripts/backup.sh >> ~/dayXX-crontab-automation/logs/automation.log 2>&1
+
+# Cleanup logs every Sunday
+0 0 * * 0 /bin/bash ~/dayXX-crontab-automation/scripts/cleanup.sh >> ~/dayXX-crontab-automation/logs/automation.log 2>&1
+
+# Check system health every hour
+0 * * * * /bin/bash ~/dayXX-crontab-automation/scripts/healthcheck.sh >> ~/dayXX-crontab-automation/logs/automation.log 2>&1
